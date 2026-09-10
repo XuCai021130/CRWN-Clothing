@@ -9,8 +9,7 @@ import {
   createUserDocumentFromAuth
 } from "../../utils/firebase/firebase.util";
 
-import './sign-in-form.styles.scss'
-import { log } from "firebase/firestore/pipelines";
+import './sign-in-form.styles.scss';
 
 const defaultFormFields = { 
   email: '',
@@ -21,21 +20,20 @@ const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
+
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   }
 
-  const signInWithGoogle = async () => {
-    const {user} = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+  const signInWithGoogle = () => {
+    signInWithGooglePopup();
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await signInAuthUserWithEmailAndPassword(email, password);
-      console.log(response);
+      const { user } = await signInAuthUserWithEmailAndPassword(email, password);
       resetFormFields();
     } catch (error) {
       switch (error.code) {
@@ -86,7 +84,6 @@ const SignInForm = () => {
           <Button type='submit' onClick={handleSubmit}>SIGN IN</Button>
           <Button type='button' onClick={signInWithGoogle} buttonType='google'>GOOGLE SIGN IN</Button>
         </div>
-
       </form>
     </div>
   )

@@ -5,7 +5,7 @@ import Button from "../button/button.component";
 
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../../utils/firebase/firebase.util";
 
-import './sign-up-form.styles.scss'
+import './sign-up-form.styles.scss';
 
 const defaultFormFields = {
   displayName: '',
