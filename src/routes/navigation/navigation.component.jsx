@@ -8,9 +8,9 @@ const Navigation = () => {
     <>
       <div className="navigation">
         <Link to={'/'}>
-            <div className="logo-container">
-              <CrwnLogo className="logo"/>
-            </div>
+          <div className="logo-container">
+            <CrwnLogo className="logo"/>
+          </div>
         </Link>
         <div className="nav-links-container">
           <Link className="nav-link" to={'/shop'}>
