@@ -19,7 +19,7 @@ const Button = ({ children, buttonType, ...otherProps }) => {
     <CustomButton {...otherProps}>
       {children}
     </CustomButton>
-  );
+  ); 
 }
 
 export default Button;
